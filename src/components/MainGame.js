@@ -1,9 +1,21 @@
 import React from "react"
+import Confetti from "react-confetti"
+import { useWindowSize } from "@react-hook/window-size"
 
 export default function MainGame(){
     const [diceValues,setDiceValues] = React.useState(initializeDiceValue())
     const[isRoll,setIsRoll] = React.useState(checkIsRoll())
     
+    function checkIsRoll(){
+        const allHeld = diceValues.every(die => die.roll === false)
+        const firstValue = diceValues[0].value
+        const allSameValue = diceValues.every(die => die.value === firstValue)
+        if (allHeld && allSameValue) {
+            return false
+        }
+        return true
+    }
+
     React.useEffect(()=>{
         setIsRoll(checkIsRoll)
     },[diceValues])
@@ -20,16 +32,9 @@ export default function MainGame(){
         return temp
     }
 
-    function checkIsRoll(){
-        for(let i=0; i<10; i++){
-            if(diceValues[i].roll === true)
-                return true;
-        }
-        return false;
-    }
+    
 
     function toggleRoll(event){
-        // console.log("hello",event)
         let i = parseInt(event.target.id[8])
         setDiceValues((prev)=>{
             return prev.map((dice)=>{
@@ -67,8 +72,10 @@ export default function MainGame(){
     function resetDices(){
         setDiceValues(initializeDiceValue())
     }
+    const { width, height } = useWindowSize()
     return(
         <div className="game--main">
+            {!isRoll && <Confetti height={height} width={width} numberOfPieces={500}/>}
             <h2>Tenzies</h2>
             <p className="head-text">
                 Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
@@ -77,7 +84,7 @@ export default function MainGame(){
                 {diceElements}
             </div>
             {isRoll && <button onClick={rollDices}>Roll</button>}
-            {!isRoll && <button onClick={resetDices}>Reset</button>}
+            {!isRoll && <button onClick={resetDices}>New Game</button>}
         </div>
     )
 }
