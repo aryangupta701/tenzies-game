@@ -11,16 +11,16 @@ const Buttons = (props) => {
     <div>
         
         {
-            props.hasWon && 
+            !props.hasWon && 
             <button onClick={toggleStart} className="roll-button">{ props.isStart ? "End" : "Start" }</button>
             
         }
         {
-            props.hasWon && props.isStart &&
+            !props.hasWon && props.isStart &&
             <button onClick={props.rollDices} className="roll-button">Roll</button>
         }
         {   
-            !props.hasWon && 
+            props.hasWon && 
             <button onClick={props.resetDices} className="roll-button">New Game</button>
         }
 

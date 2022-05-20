@@ -42,7 +42,7 @@ function App() {
       }, 1000);
       return ()=>clearInterval(timer)
     }
-  })
+  },[isActive,seconds])
 
   return (
     <div className='app-container'>
