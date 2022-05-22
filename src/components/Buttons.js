@@ -12,7 +12,7 @@ const Buttons = (props) => {
         
         {
             !props.hasWon && 
-            <button onClick={toggleStart} className="roll-button">{ props.isStart ? "End" : "Start" }</button>
+            <button onClick={toggleStart} className={props.isStart ? "roll-button" : "start-button"}>{ props.isStart ? "End" : "Start" }</button>
             
         }
         {

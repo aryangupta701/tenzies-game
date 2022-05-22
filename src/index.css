@@ -82,6 +82,21 @@ body{
   margin-top: 35px;
 }
 
+.start-button{
+  padding: 15px;
+  border-radius: 5px;
+  width: 150px;
+  font-size: 22px;
+  background-color: #5035FF;
+  color: white;
+  border: none;
+  font-weight: 700;
+  font-family: 'Karla', sans-serif;
+  cursor: pointer;
+  margin: 12px;
+  margin-top: 35px;
+}
+
 button:focus {
   outline: none;
 }
@@ -107,15 +122,29 @@ button:active {
 
 .header-container{
   background-color: #F5F5F5;
-  height: 100px;
+  height: 120px;
   width: 260px;
   border-radius: 10px;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 30px;
   padding: 30px;
   padding-top: 5px;  
 }
 
 .header-heading{
   margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.highscore--data{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 2px solid #8c8383;
+}
+
+.currentscore--data{
+  display: flex;
+  justify-content: space-between;
+
 }

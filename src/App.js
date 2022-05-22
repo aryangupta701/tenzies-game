@@ -54,6 +54,7 @@ function App() {
           setSeconds={setSeconds}
           minutes={minutes}
           setMinutes={setMinutes}
+          highScore={highScore}
         />
 
         <MainGame isStart={isStart}
