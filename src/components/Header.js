@@ -5,6 +5,7 @@ const Header = (props) => {
   const seconds = props.seconds
   return (
     <div className='header-container'>
+      <h1 className='header-heading'>High Scores</h1>
         <div>Minimum Time</div>
         <div>Minimum Rolls</div>
         {props.isStart && <div>Current Time : {minutes<10? "0"+minutes : minutes}:{seconds<10 ? "0"+seconds: seconds} </div>}

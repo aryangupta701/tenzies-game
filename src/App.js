@@ -4,25 +4,17 @@ import MainGame  from './components/MainGame'
 import Header from './components/Header';
 
 function App() {
+  // localStorage.clear()
   const[isStart,setIsStart] = React.useState(()=> false)
-  // const[highScore, setHighScore] = React.useState(()=>{
-  //   return JSON.parse(localStorage.getItem("highScore")) || {}
-  // })
   const[highScore, setHighScore] = React.useState(()=>{
-    return {
-      rolls : 10, 
-      time : {
-        minutes:5,
-        seconds:5
-      }}
+    return JSON.parse(localStorage.getItem("highScore")) 
   })
+  
   const[currentScore,setCurrentScore] = React.useState(() => {
     return {
       rolls : 0, 
-      time : {
-        minutes:0,
-        seconds:0
-      }
+      minutes:0,
+      seconds:0
    } 
   })
 
@@ -39,6 +31,13 @@ function App() {
           setSeconds(0);
         }
         else setSeconds(prev => prev+1);
+         setCurrentScore(prev => {
+          return {
+              ...prev, 
+              minutes : minutes,
+              seconds : seconds
+          }
+      })
       }, 1000);
       return ()=>clearInterval(timer)
     }
@@ -47,7 +46,7 @@ function App() {
   return (
     <div className='app-container'>
       <div className="App">
-
+        
         <Header isStart={isStart} 
           setIsStart={setIsStart}
           currentScore ={currentScore}
@@ -66,6 +65,8 @@ function App() {
           setHighScore = {setHighScore}
           setMinutes={setMinutes}
           setSeconds={setSeconds}
+          minutes={minutes}
+          seconds={seconds}
         />
 
       </div>
