@@ -9,32 +9,44 @@ const SignUp = () => {
         navigate("/play")
     }
   return (
-    <div>
-        <form> 
-            <label>First Name</label>
-            <input 
-                placeholder='First Name'
-            />
-            <label>Last Name</label>
-            <input 
-                placeholder='Last Name'
-            />
-            <label>UserName</label>
-            <input 
-                placeholder='UserName'
-            />
-            <label>Email</label>
-            <input 
-                placeholder='example@gmail.com'
-            />
-            <label>Password</label>
-            <input 
-                placeholder='Password'
-            />
-            <label>Confirm Password</label>
-            <input 
-                placeholder='Confirm Password'
-            />
+    <div style={{padding:"10px"}}>
+        <form className='signup-form'> 
+            <div className='signup-entry'>
+                <label>First Name</label>
+                <input 
+                    placeholder='First Name'
+                />
+            </div>
+            <div className='signup-entry'>
+                <label>Last Name</label>
+                <input 
+                    placeholder='Last Name'
+                />
+            </div>
+            <div className='signup-entry'> 
+                <label>UserName</label>
+                <input 
+                    placeholder='UserName'
+                />
+            </div>
+            <div className='signup-entry'> 
+                <label>Email</label>
+                <input 
+                    placeholder='example@gmail.com'
+                />
+            </div>
+            <div className='signup-entry'>
+                <label>Password</label>
+                <input 
+                    placeholder='Password'
+                />
+            </div>
+            <div className='signup-entry'>  
+                <label>Confirm Password</label>
+                <input 
+                    placeholder='Confirm Password'
+                />
+            </div>
             <button onClick={submitButton}>Submit</button>
         </form>
     </div>

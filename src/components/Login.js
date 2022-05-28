@@ -22,11 +22,11 @@ const Login = () => {
     <div>
         Login
         <div className='login-form'> 
-          <div>
+          <div className='login-entry'>
             <label>Email</label>
             <input placeholder='example@gmail.com' />
           </div>
-          <div>
+          <div className='login-entry'>
             <label>Password</label>
             <input placeholder='Enter Password' />
           </div>

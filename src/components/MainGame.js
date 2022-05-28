@@ -141,7 +141,6 @@ export default function MainGame({setIsActive,...props}){
                 isStart = {props.isStart}
                 setIsStart = {props.setIsStart}
                 setIsActive = {setIsActive}
-
             />
             
         </div>
