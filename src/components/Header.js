@@ -1,10 +1,12 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Header = (props) => {
+  const isStart = useSelector(state => state.isStart)
   const minutes = props.minutes
   const seconds = props.seconds
   return (
-    !props.highScore && !props.isStart ? <div></div>:
+    !props.highScore && !isStart ? <div></div>:
     <div className='header-container'>
       {props.highScore &&
       <div>
@@ -20,7 +22,7 @@ const Header = (props) => {
           </div>
         </div>
       }
-        {props.isStart &&
+        {isStart &&
       <div>
           <h2 className='header-heading'>Current Score</h2>
           <div className='currentscore--data'>

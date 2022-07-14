@@ -4,7 +4,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 const Home = () => {
     const navigate = useNavigate()
     const  handleclick = ()=>{
-        navigate("/login")
+        navigate("/play")
     }
   return (
     <div className='home-page'>

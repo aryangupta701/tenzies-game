@@ -4,9 +4,10 @@ import { useWindowSize } from "@react-hook/window-size"
 import { nanoid } from "nanoid"
 import Die from "./Die"
 import Buttons from "./Buttons"
+import { useSelector } from "react-redux"
 
 export default function MainGame({setIsActive,...props}){
-    
+    const isStart = useSelector(state=>state.isStart)
     const [diceValues,setDiceValues] = React.useState(initializeDiceValue())
     const[hasWon,setHasWon] = React.useState(()=> false)
     const[triggerHigh, setTriggerHigh] = React.useState(false)
@@ -130,7 +131,7 @@ export default function MainGame({setIsActive,...props}){
                 Roll until all dice are the same. Click each die to freeze it at its current value between rolls.
             </p>
             {
-                props.isStart &&
+                isStart &&
                 <div className="dice-container">
                    {diceElements}
                 </div>
@@ -138,8 +139,8 @@ export default function MainGame({setIsActive,...props}){
             <Buttons hasWon={hasWon} 
                 resetDices={resetDices}
                 rollDices={rollDices}
-                isStart = {props.isStart}
-                setIsStart = {props.setIsStart}
+                // isStart = {props.isStart}
+                // setIsStart = {props.setIsStart}
                 setIsActive = {setIsActive}
             />
             

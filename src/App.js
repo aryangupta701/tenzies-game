@@ -10,13 +10,13 @@ function App() {
   return (
     <div className='app-container'>
       <div className="App">
-        <BrowserRouter>
+        <BrowserRouter basename='tenzies-game'>
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />}/>
-            <Route path='/play' element={<Game />} />
-            <Route path='/profile' element={<Profile />} />
-            <Route path='/signup' element={<SignUp />} />
+            <Route path='' element={<Home />} />
+            {/* <Route path='login' element={<Login />}/> */}
+            <Route path='play' element={<Game />} />
+            {/* <Route path='profile' element={<Profile />} /> */}
+            {/* <Route path='signup' element={<SignUp />} /> */}
           </Routes>
         </BrowserRouter>
       </div>

@@ -4,7 +4,7 @@ import MainGame from './MainGame'
 
 const Game = () => {
      // localStorage.clear()
-  const[isStart,setIsStart] = React.useState(()=> false)
+  // const[isStart,setIsStart] = React.useState(()=> false)
   const[highScore, setHighScore] = React.useState(()=>{
     return JSON.parse(localStorage.getItem("highScore")) 
   })
@@ -43,8 +43,9 @@ const Game = () => {
   },[isActive,seconds])
   return (
     <div>
-    <Header isStart={isStart} 
-          setIsStart={setIsStart}
+    <Header
+    //  isStart={isStart} 
+          // setIsStart={setIsStart}
           currentScore ={currentScore}
           seconds={seconds}
           setSeconds={setSeconds}
@@ -53,8 +54,9 @@ const Game = () => {
           highScore={highScore}
         />
 
-        <MainGame isStart={isStart}
-          setIsStart={setIsStart}
+        <MainGame 
+        // isStart={isStart}
+          // setIsStart={setIsStart}
           currentScore ={currentScore}
           setCurrentScore ={setCurrentScore}
           setIsActive = {setIsActive}

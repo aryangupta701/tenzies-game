@@ -1,9 +1,12 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { isStartToggle } from '../store/index';
 
 const Buttons = (props) => {
-    
+    const isStart = useSelector(state => state.isStart)
+    const dispatch = useDispatch()
     function toggleStart(){
-        props.setIsStart( prev => !prev)
+        dispatch(isStartToggle())
         props.setIsActive(true);
     }
 
@@ -12,11 +15,11 @@ const Buttons = (props) => {
         
         {
             !props.hasWon && 
-            <button onClick={toggleStart} className={props.isStart ? "roll-button" : "start-button"}>{ props.isStart ? "End" : "Start" }</button>
+            <button onClick={toggleStart} className={isStart ? "roll-button" : "start-button"}>{isStart ? "End" : "Start" }</button>
             
         }
         {
-            !props.hasWon && props.isStart &&
+            !props.hasWon && isStart &&
             <button onClick={props.rollDices} className="roll-button">Roll</button>
         }
         {   
