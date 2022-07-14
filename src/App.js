@@ -10,7 +10,7 @@ function App() {
   return (
     <div className='app-container'>
       <div className="App">
-        <BrowserRouter basename='tenzies-game'>
+        <BrowserRouter>
           <Routes>
             <Route path='' element={<Home />} />
             {/* <Route path='login' element={<Login />}/> */}
